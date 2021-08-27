@@ -1,17 +1,18 @@
-import {Card,Button} from 'react-bootstrap'
-import {Link} from "react"
+import {Card} from 'react-bootstrap'
 import {FaRegStar} from 'react-icons/fa'
 import {GrArticle} from 'react-icons/gr'
 import {HiUserCircle} from 'react-icons/hi'
 import {BsFillClockFill} from 'react-icons/bs'
+import {FaHashtag} from 'react-icons/fa'
 
-export const NewsCard = ({news}) => {
+export const NewsCard = ({news,ind}) => {
   const {by,descendants,id,score,time,title,type,url} = news
+  console.log(ind,'ind')
   console.log(news)
     return (
         <>
        <Card className="text-center" border="dark" >
-  <Card.Header>Rating {score} <FaRegStar/></Card.Header>
+  <Card.Header>{ind+1}  <FaHashtag/>   | Rating {score} <FaRegStar/></Card.Header>
   <Card.Body>
     <Card.Title><GrArticle/> | <a href={url}>{title}</a></Card.Title>
     <Card.Text>
