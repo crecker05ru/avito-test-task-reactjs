@@ -24,7 +24,7 @@ export const fetchNews = () => {
             let result = []
             console.log('result',result)
             console.log('result.data',...result)
-            for (let i = 0; i < 100;i++){
+            for (let i = 0; i < 10;i++){
                 const {data} = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${response.data[i]}.json?print=pretty`)
                 result.push(data)
             }
