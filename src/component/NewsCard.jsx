@@ -5,6 +5,9 @@ import {HiUserCircle} from 'react-icons/hi'
 import {BsFillClockFill} from 'react-icons/bs'
 import {FaHashtag} from 'react-icons/fa'
 
+import { Route,Link } from 'react-router-dom';
+import { Article } from './Article';
+
 export const NewsCard = ({news,ind}) => {
   const {by,descendants,id,score,time,title,type,url} = news
   console.log(ind,'ind')
@@ -14,7 +17,7 @@ export const NewsCard = ({news,ind}) => {
        <Card className="text-center" border="dark" >
   <Card.Header>{ind+1}  <FaHashtag/>   | Rating {score} <FaRegStar/></Card.Header>
   <Card.Body>
-    <Card.Title><GrArticle/> | <a href={url}>{title}</a></Card.Title>
+    <Card.Title><GrArticle/> | <Link to={"/article/"+id}>{title}</Link></Card.Title>
     <Card.Text>
       <HiUserCircle/> {by}
     </Card.Text>

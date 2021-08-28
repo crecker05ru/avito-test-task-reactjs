@@ -3,8 +3,10 @@ import {useDispatch,useSelector} from "react-redux"
 import { fetchNews, fetchNextNews } from './store/reducers/newsPageReducer';
 import {Button,Spinner} from 'react-bootstrap';
 import { NavigationBar } from './component/navigationBar';
-import { NewsCard } from './component/NewsCard';
 import {useEffect} from 'react'
+import {Route} from "react-router-dom"
+import { MainPage } from './Pages/MainPage';
+import { ArticlePage } from './Pages/ArticlePage';
 
 function App() {
 const dispatch = useDispatch()
@@ -21,7 +23,7 @@ const fetchNext = () => {
 }
 useEffect(() => {
   dispatch(fetchNews())
-  }, [])
+  },[])
 // if(news.length < 1){
 //   return <Spinner animation="border" role="status">
 //   <span className="visually-hidden">Loading...</span>
@@ -29,16 +31,10 @@ useEffect(() => {
 // }
   return (
     <div className="App">
-      <NavigationBar/>
-      { news.map(
-        (n , index)=> <NewsCard news={n} ind={index}/>
-      )}
-      {console.log('news.length',news.length)}
-      {loading ? <Spinner animation="border" role="status">
-  <span className="visually-hidden">Loading...</span>
-</Spinner> : <Button variant="primary" onClick={fetchNext}>Fetch</Button>}
-       
-       
+      <NavigationBar/>  
+      <MainPage news={news}/>  
+     
+      <ArticlePage news={news}/>        
     </div>
   );
 }
