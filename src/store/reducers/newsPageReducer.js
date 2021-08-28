@@ -3,6 +3,7 @@ import axios from "axios"
 const FETCH_START = "FETCH_START"
 const FETCH_NEWS = "FETCH_NEWS"
 const FETCH_DONE = "FETCH_DONE"
+const CLEAR_NEWS = "CLEAR_NEWS"
 
 const initialState = {
     news: [],
@@ -17,6 +18,8 @@ export const newsPageReduser = (state = initialState,action) => {
             return {...state,news: [...state.news,...action.payload],loading: true}
         case FETCH_DONE:
                 return {...state,loading: false}
+        case CLEAR_NEWS:
+            return {...state,news:[]}
         default:
             return state
     }
@@ -60,6 +63,29 @@ export const fetchNextNews = (newsCount) => async (dispatch) => {
 export const fetchNews = () => {
     return async (dispatch) => {
         try{
+            dispatch({type: FETCH_START})
+            const response = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
+            console.log('data',response.data)
+            let result = []
+            console.log('result',result)
+            console.log('result.data',...result)
+            for (let i = 0; i < 10;i++){
+                const {data} = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${response.data[i]}.json?print=pretty`)
+                result.push(data)
+            }
+            // response.data.slice(10)
+            dispatch({type:FETCH_NEWS,payload: result})
+            dispatch({type: FETCH_DONE})
+        }catch(e){
+
+        }
+    }
+}
+
+export const updateNews = () => {
+    return async (dispatch) => {
+        try{
+            dispatch({type: CLEAR_NEWS})
             dispatch({type: FETCH_START})
             const response = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
             console.log('data',response.data)

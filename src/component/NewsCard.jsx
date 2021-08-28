@@ -17,7 +17,7 @@ export const NewsCard = ({news,ind}) => {
        <Card className="text-center" border="dark" >
   <Card.Header>{ind+1}  <FaHashtag/>   | Rating {score} <FaRegStar/></Card.Header>
   <Card.Body>
-    <Card.Title><GrArticle/> | <Link to={"/article/"+id}>{title}</Link></Card.Title>
+    <Card.Title><GrArticle/> | <Link to={`/article/${id}`} className="text-decoration-none">{title}</Link></Card.Title>
     <Card.Text>
       <HiUserCircle/> {by}
     </Card.Text>
