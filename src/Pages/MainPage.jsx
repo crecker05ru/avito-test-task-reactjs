@@ -3,7 +3,8 @@ import {Button,Spinner} from 'react-bootstrap';
 import { NewsCard } from '../component/NewsCard';
 import {useEffect} from 'react'
 export const MainPage =({news,loading,fetchNext,update}) => {
-    console.log('loading',news)
+    console.log('news',news)
+    console.log('MainPage loading',loading)
 // const dispatch = useDispatch()
 // const {news,loading} = useSelector((state => state.news))
 // console.log('news',news)
@@ -21,7 +22,10 @@ export const MainPage =({news,loading,fetchNext,update}) => {
 //   },[])
     return (
         <>
-            <Button onClick={update}>Update News</Button>
+        <div className="d-grid gap-2">
+         <Button onClick={update} variant="outline-dark">Update News</Button>
+        </div>
+            
                   { news.map(
         (n , index)=> <NewsCard key={n.id} news={n} ind={index}/>
       )}

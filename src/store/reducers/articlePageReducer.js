@@ -1,5 +1,6 @@
 const FETCH_ARTICLE = "FETCH_ARTICLE"
 
+
 const initialState = {
     article: [],
     loading: false

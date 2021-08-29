@@ -29,7 +29,15 @@ useEffect(() => {
   const update = () =>{
     dispatch(updateNews())
   }
-  setInterval(dispatch(fetchNews),1000*60)
+  // setInterval(dispatch(fetchNews),1000*60)
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     dispatch(updateNews())
+  //   }, 1000*60);
+  //   return () => clearInterval(interval);
+  // }, []);
+  
 // if(news.length < 1){
 //   return <Spinner animation="border" role="status">
 //   <span className="visually-hidden">Loading...</span>

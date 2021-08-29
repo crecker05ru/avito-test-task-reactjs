@@ -39,6 +39,7 @@ export const newsPageReduser = (state = initialState,action) => {
 // }
 
 export const fetchNextNews = (newsCount) => async (dispatch) => {   
+    try{
     dispatch({type: FETCH_START})
     const response = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
     let result = []
@@ -47,13 +48,13 @@ export const fetchNextNews = (newsCount) => async (dispatch) => {
     let current = newsCount.length
     let nextCount = current  + 10
     console.log('count',nextCount)
-    try{
+    
         for(let k = current;k < nextCount; k++){
             const {data} = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${response.data[k]}.json?print=pretty`)
             result.push(data)
             console.log('result.data',...result)
         }
-        dispatch({type:FETCH_NEWS,payload: result})
+        dispatch({type: FETCH_NEWS,payload: result})
         dispatch({type: FETCH_DONE})
     }catch(e){
         console.log(e)
