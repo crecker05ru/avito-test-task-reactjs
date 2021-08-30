@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/avito-test-task-reactjs/static/css/main.0385f92f.chunk.css",
+    "main.js": "/avito-test-task-reactjs/static/js/main.0f57f746.chunk.js",
+    "main.js.map": "/avito-test-task-reactjs/static/js/main.0f57f746.chunk.js.map",
+    "runtime-main.js": "/avito-test-task-reactjs/static/js/runtime-main.62e30234.js",
+    "runtime-main.js.map": "/avito-test-task-reactjs/static/js/runtime-main.62e30234.js.map",
+    "static/css/2.818011ed.chunk.css": "/avito-test-task-reactjs/static/css/2.818011ed.chunk.css",
+    "static/js/2.f7ab2838.chunk.js": "/avito-test-task-reactjs/static/js/2.f7ab2838.chunk.js",
+    "static/js/2.f7ab2838.chunk.js.map": "/avito-test-task-reactjs/static/js/2.f7ab2838.chunk.js.map",
+    "static/js/3.175000ec.chunk.js": "/avito-test-task-reactjs/static/js/3.175000ec.chunk.js",
+    "static/js/3.175000ec.chunk.js.map": "/avito-test-task-reactjs/static/js/3.175000ec.chunk.js.map",
+    "index.html": "/avito-test-task-reactjs/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/avito-test-task-reactjs/static/css/2.818011ed.chunk.css.map",
+    "static/css/main.0385f92f.chunk.css.map": "/avito-test-task-reactjs/static/css/main.0385f92f.chunk.css.map",
+    "static/js/2.f7ab2838.chunk.js.LICENSE.txt": "/avito-test-task-reactjs/static/js/2.f7ab2838.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62e30234.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.f7ab2838.chunk.js",
+    "static/css/main.0385f92f.chunk.css",
+    "static/js/main.0f57f746.chunk.js"
+  ]
+}
