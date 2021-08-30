@@ -6,7 +6,22 @@ const FETCH_DONE = "FETCH_DONE"
 const CLEAR_NEWS = "CLEAR_NEWS"
 
 const initialState = {
-    news: [],
+    news: [
+        // {
+        //     "by": "devnull3",
+        //     "descendants": 3,
+        //     "id": 28354257,
+        //     "kids": [
+        //     28354272,
+        //     28354347
+        //     ],
+        //     "score": 1,
+        //     "time": 1630318527,
+        //     "title": "Dirty Harry on feminism and women's quotas [video]",
+        //     "type": "story",
+        //     "url": "https://www.youtube.com/watch?v=9rcIJIWqYmo"
+        //     }
+    ],
     loading: false
 }
 
@@ -44,15 +59,15 @@ export const fetchNextNews = (newsCount) => async (dispatch) => {
     const response = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
     let result = []
 
-    console.log('newsCount',newsCount)
+    // console.log('newsCount',newsCount)
     let current = newsCount.length
-    let nextCount = current  + 10
-    console.log('count',nextCount)
+    let nextCount = current  + 20
+    // console.log('count',nextCount)
     
         for(let k = current;k < nextCount; k++){
             const {data} = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${response.data[k]}.json?print=pretty`)
             result.push(data)
-            console.log('result.data',...result)
+            // console.log('result.data',...result)
         }
         dispatch({type: FETCH_NEWS,payload: result})
         dispatch({type: FETCH_DONE})
@@ -66,11 +81,11 @@ export const fetchNews = () => {
         try{
             dispatch({type: FETCH_START})
             const response = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
-            console.log('data',response.data)
+            // console.log('data',response.data)
             let result = []
-            console.log('result',result)
-            console.log('result.data',...result)
-            for (let i = 0; i < 10;i++){
+            // console.log('result',result)
+            // console.log('result.data',...result)
+            for (let i = 0; i < 20;i++){
                 const {data} = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${response.data[i]}.json?print=pretty`)
                 result.push(data)
             }
@@ -91,8 +106,8 @@ export const updateNews = () => {
             const response = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
             console.log('data',response.data)
             let result = []
-            console.log('result',result)
-            console.log('result.data',...result)
+            // console.log('result',result)
+            // console.log('result.data',...result)
             for (let i = 0; i < 10;i++){
                 const {data} = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${response.data[i]}.json?print=pretty`)
                 result.push(data)

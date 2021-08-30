@@ -32,7 +32,10 @@ export const MainPage =({news,loading,fetchNext,update}) => {
       {console.log('news.length',news.length)}
       {loading ? <Spinner animation="border" role="status">
   <span className="visually-hidden">Loading...</span>
-</Spinner> : <Button variant="primary" onClick={fetchNext}>Next</Button>}
+</Spinner> 
+: <div className="d-grid gap-2">
+<Button onClick={fetchNext} variant="outline-dark">Next</Button>
+</div>}
         </>
     )
 }
