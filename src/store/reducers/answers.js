@@ -8,6 +8,14 @@ const FETCH_DONE = "FETCH_DONE"
 const initialState= {
     answers : [
         // {
+        //     "by": "afpx",
+        //     "id": 28355498,
+        //     "parent": 28354272,
+        //     "text": "How&#x27;s she supposed to get a misdemeanor or felony arrest if cops like Harry keep her at her desk?",
+        //     "time": 1630330530,
+        //     "type": "comment"
+        //     },
+        // {
         //     "by": "eesmith",
         //     "id": 28354373,
         //     "parent": 28354272,
@@ -28,7 +36,7 @@ export const answersReducer = (state = initialState, action) => {
         case CLEAR_ANSWERS:
             return {...state,answers:[]}  
         case FETCH_ANSWERS:
-            return {...state,comments: [...state.answers,...action.payload],loading: true}
+            return {...state,answers: action.payload,loading: true}
         default:
             return state
     }
@@ -36,8 +44,9 @@ export const answersReducer = (state = initialState, action) => {
 export const fetchAnswers = (kids) => async (dispatch) => {
     console.log('fetchcommentstoanswers',kids)
     try{
-        dispatch({type: FETCH_START})
+        // dispatch({type: FETCH_START})
         let result = []
+        console.log('result answers',result)
         for(let i = 0;i < kids.length;i++){
         const {data} = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${kids[i]}.json?print=pretty`)
             result.push(data)

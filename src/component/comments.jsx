@@ -15,14 +15,17 @@ export const Comments = ({answers}) => {
 // useEffect(()=>{
 //     dispatch(fetchAnswers(kids))
 // },[])
+console.log("answer in comments",answers)
     return (
-        <><Card border="dark" style={{ width: '40rem' }} className={"ms-5 mt-2"}>
+        <>  {answers.map(a =>  <div key={a.id}><Card border="dark" style={{ width: '40rem' }} className={"ms-5 mt-2"}>
             <Card.Text>
-                {answers.map(a=> 
-                    <div key={a.id}><HiUserCircle/>{a.by} <div>- {a.text}</div></div>
-                )}
+                
+                    <div ><HiUserCircle/>{a.by} <div>- {a.text}</div></div>
+                
             </Card.Text>
             </Card>
+            </div>
+            )}
         </>
     )
 }

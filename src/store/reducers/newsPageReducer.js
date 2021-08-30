@@ -7,20 +7,36 @@ const CLEAR_NEWS = "CLEAR_NEWS"
 
 const initialState = {
     news: [
-        // {
-        //     "by": "devnull3",
-        //     "descendants": 3,
-        //     "id": 28354257,
-        //     "kids": [
-        //     28354272,
-        //     28354347
-        //     ],
-        //     "score": 1,
-        //     "time": 1630318527,
-        //     "title": "Dirty Harry on feminism and women's quotas [video]",
-        //     "type": "story",
-        //     "url": "https://www.youtube.com/watch?v=9rcIJIWqYmo"
-        //     }
+        {
+            "by": "devnull3",
+            "descendants": 3,
+            "id": 28354257,
+            "kids": [
+            28354272,
+            28354347
+            ],
+            "score": 1,
+            "time": 1630318527,
+            "title": "Dirty Harry on feminism and women's quotas [video]",
+            "type": "story",
+            "url": "https://www.youtube.com/watch?v=9rcIJIWqYmo"
+            },
+            {
+                "by": "7402",
+                "descendants": 13,
+                "id": 28356638,
+                "kids": [
+                28357312,
+                28357237,
+                28357051,
+                28356977
+                ],
+                "score": 44,
+                "time": 1630337497,
+                "title": "FCC Temporary Waiver Permits Higher Symbol Rate Data for Hurricane Ida Traffic",
+                "type": "story",
+                "url": "http://www.arrl.org/news/view/fcc-grants-temporary-waiver-to-permit-higher-symbol-rate-data-transmissions-for-hurricane-ida-traffi"
+                }
     ],
     loading: false
 }

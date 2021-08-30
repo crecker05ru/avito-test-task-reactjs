@@ -12,35 +12,48 @@ import {useEffect,useState} from 'react'
 import {useParams} from "react-router-dom"
 import { updateComments } from './../store/reducers/commentsReducer';
 import { fetchAnswers } from '../store/reducers/answers'
+import {Answer} from '../component/answer'
 
 
 export const Article = ({news}) => {
     const {url,title,time,by,kids,descendants} = news
     const {comments,loading} = useSelector(state => state.comments)
     const {answers} = useSelector(state => state.answers)
-    const [showAnswers,setShowAnswers] = useState(true)
+    const [showAnswers,setShowAnswers] = useState(false)
     console.log('comments',comments)
     const dispatch = useDispatch()
     console.log('Comments loading',loading)
     console.log("kids article to answers",kids)
     console.log('answers in comments',answers)
-    
+
+    const loadAnswers = (answer) => {
+      dispatch(fetchAnswers(answer))
+      setShowAnswers(!showAnswers)
+   }
+
    const showAnswer = () => {
       setShowAnswers(!showAnswers)
    }
+   // useEffect(() => {
+   //    dispatch(fetchAnswers())
+   // })
    console.log('showAnswers',showAnswers)
 
-    useEffect(()=> {
+   //  useEffect(()=> {
+   //    loadAnswers()
+   //  },[])
+
+useEffect(()=> {
        dispatch(fetchComments(kids))
     },[])
+
 
     const update = () =>{
        dispatch(updateComments(kids))
        console.log("click")
     } 
-    const loadAnswers = (answer) => {
-       dispatch(fetchAnswers(answer))
-    }
+  
+    
     console.log('article n',news)
    //  if(loading){
    //     return <Spinner animation="border" role="status"></Spinner>
@@ -74,11 +87,15 @@ export const Article = ({news}) => {
                       <Comments kids={c.kids}/><Link to={`/comments/${c.kids}`}> Load answers </Link>
                    </Route> */}
                   
-                   {showAnswers ? <>  <Button variant="link" className="text-decoration-none" onClick={showAnswer}>Load comments</Button> </> 
+                   {!showAnswers ? <>  
+                     <Answer value={c.kids} onComponentClick={loadAnswers}/>
+                    </> 
                    : <div>
-                      <Button variant="link" className="text-decoration-none" onClick={showAnswer}>Hide comments</Button>
-                      <Comments answers={answers}></Comments></div>
+                      <Button variant="link" className="text-decoration-none" onClick={showAnswer}>Hide answers</Button>
+                      <Comments answers={answers} ></Comments>
+                      </div>
                    }
+                   
                    </p>
                    }
                 </div>
