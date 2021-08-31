@@ -1,8 +1,9 @@
 import { Button, Card ,Spinner} from 'react-bootstrap'
 
-export const Answer = ({value,onComponentClick}) => {
+export const Answer = ({value,onComponentClick,id}) => {
     const handleClick = () => {
         onComponentClick(value)
+        console.log("answer c.kids value",value,"id",id)
     }
     return (
         <>

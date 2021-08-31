@@ -36,7 +36,7 @@ export const answersReducer = (state = initialState, action) => {
         case CLEAR_ANSWERS:
             return {...state,answers:[]}  
         case FETCH_ANSWERS:
-            return {...state,answers: action.payload,loading: true}
+            return {...state,answers: [...state.answers,...action.payload],loading: true}
         default:
             return state
     }

@@ -18,18 +18,18 @@ import {Answer} from '../component/answer'
 export const Article = ({news}) => {
     const {url,title,time,by,kids,descendants} = news
     const {comments,loading} = useSelector(state => state.comments)
-    const {answers} = useSelector(state => state.answers)
+   //  const {answers} = useSelector(state => state.answers)
     const [showAnswers,setShowAnswers] = useState(false)
     console.log('comments',comments)
     const dispatch = useDispatch()
     console.log('Comments loading',loading)
     console.log("kids article to answers",kids)
-    console.log('answers in comments',answers)
+   //  console.log('answers in comments',answers)
 
-    const loadAnswers = (answer) => {
-      dispatch(fetchAnswers(answer))
-      setShowAnswers(!showAnswers)
-   }
+   //  const loadAnswers = (answer) => {
+   //    dispatch(fetchAnswers(answer))
+   //    setShowAnswers(!showAnswers)
+   // }
 
    const showAnswer = () => {
       setShowAnswers(!showAnswers)
@@ -37,7 +37,8 @@ export const Article = ({news}) => {
    // useEffect(() => {
    //    dispatch(fetchAnswers())
    // })
-   console.log('showAnswers',showAnswers)
+
+   // console.log('showAnswers',showAnswers)
 
    //  useEffect(()=> {
    //    loadAnswers()
@@ -50,11 +51,10 @@ useEffect(()=> {
 
     const update = () =>{
        dispatch(updateComments(kids))
-       console.log("click")
     } 
   
     
-    console.log('article n',news)
+   //  console.log('article n',news)
    //  if(loading){
    //     return <Spinner animation="border" role="status"></Spinner>
    //  }
@@ -78,7 +78,7 @@ useEffect(()=> {
              {descendants}
 
              {comments.map(c => 
-                <div key={c.id} className={"mt-2"}><HiUserCircle/>{c.by} <div className={"mt-1"}>- {c.text}</div> 
+                <div key={c.id} className={"mt-2"}><HiUserCircle/>  {c.by} <div className={"mt-1"}>- {c.text}</div> 
                    {!c.kids ? "No answers" 
                    :
                    <p>
@@ -86,13 +86,13 @@ useEffect(()=> {
                    <Route path="/comments/:id?" exact>
                       <Comments kids={c.kids}/><Link to={`/comments/${c.kids}`}> Load answers </Link>
                    </Route> */}
-                  
+                  <Comments kids={c.kids} commentId={c.id}></Comments>
                    {!showAnswers ? <>  
-                     <Answer value={c.kids} onComponentClick={loadAnswers}/>
+                     
                     </> 
                    : <div>
                       <Button variant="link" className="text-decoration-none" onClick={showAnswer}>Hide answers</Button>
-                      <Comments answers={answers} ></Comments>
+                      
                       </div>
                    }
                    

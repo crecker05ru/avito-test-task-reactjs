@@ -10,8 +10,8 @@ import { Article } from './Article';
 
 export const NewsCard = ({news,ind}) => {
   const {by,descendants,id,score,time,title,type,url} = news
-  console.log(ind,'ind')
-  console.log(news)
+  // console.log(ind,'ind')
+  // console.log(news)
     return (
         <>
        <Card className="text-center" border="dark" >
